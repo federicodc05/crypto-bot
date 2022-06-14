@@ -1,8 +1,8 @@
 from telegram.ext import *
 import command_handlers as ch
-# libraries to install: python-telegram-bot, cryptocompare
+# libraries to install: python-telegram-bot, cryptocompare, matplotlib
 
-KEY = 'KEY_HERE' #Ask me in private :)
+KEY = 'KEY_HERE' #Ask in private
 
 #main
 def main():
@@ -10,6 +10,7 @@ def main():
     print("Ok")
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("conv", ch.crypto_handler,pass_args=True))
+    dp.add_handler(CommandHandler("graph", ch.graph_handler, pass_args=True))
     updater.start_polling()
     updater.idle()
 
